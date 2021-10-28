@@ -1,0 +1,68 @@
+imageType:
+  Original: {}
+  #LoG:
+    # If the in-plane spacing is large (> 2mm), consider removing sigma value 1.
+  #  sigma: [1.0, 3.0, 5.0]
+  Wavelet: {}
+    #start_level: 0
+    #level: 3
+    #wavelet: 'coif1' # There are many other wavelet algorithms.
+  Square: {}
+  SquareRoot: {}
+  Logarithm: {}
+  Exponential: {}
+  #Gradient：{}
+  #LocalBinaryPattern2D：{}
+  #LocalBinaryPattern3D：{}
+
+featureClass:
+  shape:
+  firstorder:
+  glcm:  # Disable SumAverage by specifying all other GLCM features available
+    - 'Autocorrelation'
+    - 'JointAverage'
+    - 'ClusterProminence'
+    - 'ClusterShade'
+    - 'ClusterTendency'
+    - 'Contrast'
+    - 'Correlation'
+    - 'DifferenceAverage'
+    - 'DifferenceEntropy'
+    - 'DifferenceVariance'
+    - 'JointEnergy'
+    - 'JointEntropy'
+    - 'Imc1'
+    - 'Imc2'
+    - 'Idm'
+    - 'Idmn'
+    - 'Id'
+    - 'Idn'
+    - 'InverseVariance'
+    - 'MaximumProbability'
+    - 'SumEntropy'
+    - 'SumSquares'
+  glrlm:
+  glszm:
+  gldm:
+  ngtdm:
+
+setting:
+  # Normalization:
+  normalize: true
+  normalizeScale: 100  # This allows you to use more or less the same bin width.
+
+  # Resampling:
+  preCrop: true
+
+  # Forced 2D extracion:
+  force2D: true
+  force2Ddimension: 0  # axial slices, for coronal slices, use dimension 1 and for sagittal, dimension 2.
+
+  # Image discretization:
+  binWidth: 5
+
+  # first order specific settings:
+  voxelArrayShift: 300
+
+  # Misc:
+  label: 1
